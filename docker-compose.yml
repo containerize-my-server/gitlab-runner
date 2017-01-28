@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+
+  # A machine for running https://ghost.org
+  gitlab-runner:
+    image: gitlab/gitlab-runner:latest
+    restart: always
+    volumes:
+      - .:/etc/gitlab-runner
+      - /var/run/docker.sock:/var/run/docker.sock

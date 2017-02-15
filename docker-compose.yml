@@ -4,6 +4,8 @@ services:
   gitlab-runner:
     image: gitlab/gitlab-runner:latest
     restart: always
+    # CentOS 7 seems to require privileged access
+    priviliged: tru
     volumes:
-      - .:/etc/gitlab-runner
-      - /var/run/docker.sock:/var/run/docker.sock
+      - .:/etc/gitlab-runner:Z
+      - /var/run/docker.sock:/var/run/docker.sock:Z
